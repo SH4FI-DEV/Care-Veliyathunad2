@@ -36,9 +36,14 @@ const projects = [
         <article class="group overflow-hidden rounded-md border border-border bg-card card-hover">
           <div class="relative aspect-[4/3] overflow-hidden">
             <img src={project.image} alt={project.family} loading="lazy" class="size-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent"></div>
             <div class="absolute top-3 left-3 flex gap-2">
               <span class="inline-flex items-center rounded-md bg-foreground/80 px-2 py-1 text-xs font-medium text-background">Home #{project.number}</span>
               <span class:list={['inline-flex items-center rounded-md px-2 py-1 text-xs font-semibold', project.status === 'Delivered' ? 'bg-primary text-primary-foreground' : 'bg-foreground text-background']}>{project.status}</span>
+            </div>
+            <div class="absolute inset-x-0 bottom-0 p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <p class="text-sm font-semibold text-background">{project.family}</p>
+              <p class="text-xs text-background/70">{project.location}</p>
             </div>
           </div>
           <div class="p-5">
@@ -51,6 +56,10 @@ const projects = [
                 <div class="h-2 overflow-hidden rounded-full bg-border"><div class="h-full bg-primary rounded-full progress-fill" style={`width: ${project.progress}%`}></div></div>
               </div>
             )}
+            <a href="/projects" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+              View project
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+            </a>
           </div>
         </article>
       ))}
