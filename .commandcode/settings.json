@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(git:*)",
+      "Shell(powershell -Command \"(Invoke-WebRequest -Uri http://localhost:3000 -UseBasicParsing).StatusCode\")",
+      "powershell"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}

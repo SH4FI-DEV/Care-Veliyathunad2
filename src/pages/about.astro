@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import MobileMenu from '../components/MobileMenu.tsx';
+import DonateDialog from '../components/DonateDialog.tsx';
+---
+
+<Layout title="About Us — Home for ₹1000" description="Learn about Home for ₹1000, a Kerala community initiative pooling small contributions to build safe homes for families in need. 5 homes delivered, the 6th under construction." canonicalPath="/about">
+  <section class="relative m-3 min-h-[400px] overflow-hidden rounded-md sm:m-5 lg:min-h-[500px]">
+    <img src="/images/home-inside-FFuOsBA9.jpg" alt="Inside a newly built home" class="absolute inset-0 size-full object-cover" />
+    <div class="absolute inset-0 bg-foreground/40"></div>
+    <Navbar />
+    <div class="absolute bottom-8 left-5 z-10 max-w-xl sm:bottom-12 sm:left-10">
+      <h1 class="text-4xl font-semibold text-background leading-[0.98] sm:text-6xl">About Us</h1>
+      <p class="mt-4 max-w-md text-sm text-background/80 sm:text-base">A community initiative building safe, simple homes for families in need.</p>
+    </div>
+  </section>
+
+  <section class="px-6 py-20 sm:px-12 lg:px-20 lg:py-28">
+    <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      <div>
+        <SectionLabel text="Our mission" />
+        <h2 class="mt-4 max-w-sm text-4xl font-medium leading-none sm:text-5xl">Every Family Deserves a Safe Place to Call Home.</h2>
+      </div>
+      <div>
+        <p class="max-w-2xl text-xl leading-snug sm:text-2xl">We believe that a safe home is not a luxury — it's a right. Our community pools small contributions — money, material, and helping hands — to build simple, dignified homes for those who need them most.</p>
+        <p class="mt-6 max-w-2xl leading-relaxed text-muted-foreground">What started as a simple idea — what if everyone gave just ₹1000? — has grown into a movement. Five families now have keys to their own homes. A sixth home is under construction.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-foreground px-6 py-20 sm:px-12 lg:px-20 lg:py-24">
+    <div class="mb-10">
+      <p class="flex items-center gap-2 text-xs font-bold uppercase text-primary"><span class="size-1.5 rounded-full bg-primary"></span>By the numbers</p>
+      <h2 class="mt-3 text-4xl font-medium leading-none text-background sm:text-5xl">Real Impact,<br />One Home at a Time.</h2>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-md bg-background/10 p-6 border border-background/15"><strong class="block text-4xl text-primary">5</strong><span class="mt-2 block text-sm text-background/70">Homes completed</span></div>
+      <div class="rounded-md bg-background/10 p-6 border border-background/15"><strong class="block text-4xl text-primary">1</strong><span class="mt-2 block text-sm text-background/70">Under construction</span></div>
+      <div class="rounded-md bg-background/10 p-6 border border-background/15"><strong class="block text-4xl text-primary">500+</strong><span class="mt-2 block text-sm text-background/70">Contributors</span></div>
+      <div class="rounded-md bg-background/10 p-6 border border-background/15"><strong class="block text-4xl text-primary">₹22.5L+</strong><span class="mt-2 block text-sm text-background/70">Total funds raised</span></div>
+    </div>
+  </section>
+
+  <section class="px-6 py-20 sm:px-12 lg:px-20 lg:py-28">
+    <div class="mb-12">
+      <SectionLabel text="How it works" />
+      <h2 class="mt-3 text-4xl font-medium leading-none sm:text-5xl">From ₹1000 to a Finished Home.</h2>
+    </div>
+    <div class="grid gap-8 md:grid-cols-3">
+      <div class="border-l-2 border-primary bg-card p-6"><strong class="block text-2xl text-primary">1</strong><h3 class="mt-3 text-lg font-semibold">Contribute</h3><p class="mt-2 text-sm text-muted-foreground">Give ₹1000 or any amount — via UPI, bank transfer, or QR code.</p></div>
+      <div class="border-l-2 border-primary bg-card p-6"><strong class="block text-2xl text-primary">2</strong><h3 class="mt-3 text-lg font-semibold">Build</h3><p class="mt-2 text-sm text-muted-foreground">Funds are pooled into the current build. Volunteers and professionals work together.</p></div>
+      <div class="border-l-2 border-primary bg-card p-6"><strong class="block text-2xl text-primary">3</strong><h3 class="mt-3 text-lg font-semibold">Hand Over</h3><p class="mt-2 text-sm text-muted-foreground">When the home is ready, the family receives the keys.</p></div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 text-center sm:px-12 lg:px-20">
+    <h2 class="text-4xl font-medium leading-none sm:text-5xl">Ready to Help?</h2>
+    <p class="mt-4 max-w-md mx-auto text-muted-foreground">Join hundreds of contributors. Every rupee counts, every brick matters.</p>
+    <div class="mt-8 flex justify-center gap-3">
+      <button data-donate-trigger class="btn-primary text-sm px-6 py-2.5 cursor-pointer">Donate now</button>
+      <a href="/contact" class="btn-outline h-9 px-4 py-2 text-sm cursor-pointer inline-flex items-center">Get in touch</a>
+    </div>
+  </section>
+
+  <Footer />
+  <MobileMenu client:load />
+  <DonateDialog client:load />
+</Layout>

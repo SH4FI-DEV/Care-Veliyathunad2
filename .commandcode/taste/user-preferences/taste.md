@@ -1,0 +1,25 @@
+# User Preferences
+- Development environment is Windows (C:\Users\shafi\...). Confidence: 0.9
+- Prefers HTTPS over SSH for GitHub remote URLs. Confidence: 0.7
+- Uses GitHub for repository hosting. Confidence: 0.8
+- Prefers Astro framework over Next.js for web projects. Willing to switch frameworks mid-project if something isn't working. Confidence: 0.8
+- Provides specification documents (e.g. .docx files) and expects the assistant to generate full websites from them. Brand guideline documents (.docx) are treated as the source of truth for colors, fonts, and design language. Comfortable with spec-driven development. Confidence: 0.8
+- Works on community/charity web projects and expects comprehensive, production-ready builds (not scaffolds). No placeholder text, TODO states, or "to be added" elements in the UI — everything must be fully implemented even if using dummy data. Confidence: 0.85
+- Comfortable with a full redo approach: if the current solution is broken, prefers rebuilding from scratch with a better framework rather than debugging. Willing to wipe all source files and start clean. Confidence: 0.85
+- Strongly rejects template-like or "robotic" design. Expects handcrafted, polished UI that feels like an experienced developer built it. Confidence: 0.9
+- Animations and motion are a core expectation — wants scroll-triggered reveals, staggered entrances, parallax, hover micro-interactions, and animated feedback (spinners, checkmarks). Not optional polish. Confidence: 0.9
+- Typography quality is a priority — notices and critiques font pairing, line-height, letter-spacing, fluid scaling, and text-wrap balance. Confidence: 0.8
+- Expects colors to complement each other harmoniously. Will call out when a color scheme doesn't work even if the layout is fine. Confidence: 0.8
+- Forms and interactive sections (donation, file upload, contact) deserve creative, visually rich treatment — not just functional defaults. Considers dull forms a serious problem. Confidence: 0.9
+- Appreciates structured planning before large redesigns. Wants to see a detailed plan (sections, phases, rationale) before execution on multi-file changes. Wants plans to be immediately followed by implementation ("Plan and do"). Confidence: 0.9
+- Provides reference URLs (e.g. Lovable preview links) and expects exact visual cloning — all design, colors, layout, typography, images, buttons, and design elements must be reproduced. Will explicitly reject builds where colors, alignment, or responsiveness deviate from the reference. Confidence: 0.9
+- Expects multi-page website builds to include every page in the navigation, not just the homepage. "All the other Pages links" means build them all. Confidence: 0.8
+- After making config or style changes, expects the dev server to be restarted and browser cache issues to be proactively handled (hard-refresh instructions, server restart) — will reject "it's working now" claims if changes aren't actually visible in the browser. Changes aren't done until they're visually confirmed. Confidence: 0.9
+- Direct and brief when reporting problems — "nothing changed colors still the same" — no pleasantries or hedging. Values the same directness back in responses. Confidence: 0.8
+- Uses terse single-word prompts like "continue" to resume multi-step work without restating context. Expects the assistant to maintain context and keep going autonomously across turns. Confidence: 0.85
+- Expects design verification to be done as a systematic section-by-section visual audit comparing the implementation against the reference design, not just a quick glance. Wants screenshots, computed style checks, and detailed comparison reports broken down by section. Confidence: 0.85
+- Expects sites to be SEO-ready out of the box: per-page titles and meta descriptions, canonical URLs, Open Graph/Twitter cards, JSON-LD structured data, robots.txt, and an XML sitemap. Confidence: 0.85
+- Expects all images to be optimized for fast load times (WebP/AVIF, responsive srcset, lazy loading below the fold). Page-load performance is a stated priority, not an afterthought. Confidence: 0.85
+- Prefers region-authentic imagery that matches the site's target audience (e.g., Kerala people and scenes) rather than generic stock photos. Confidence: 0.7
+- Expects sites to be responsive across breakpoints (mobile/tablet/desktop) as a baseline requirement. Confidence: 0.8
+- When a task requires credentials or access to a tool or service, prefers the assistant to ask for them rather than guess or silently skip the step. Confidence: 0.8

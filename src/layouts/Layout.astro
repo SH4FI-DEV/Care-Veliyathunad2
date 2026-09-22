@@ -1,0 +1,77 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalPath?: string;
+}
+
+const {
+  title = 'Home for ₹1000 — Building Homes for Families in Need',
+  description = 'A community initiative where anyone can contribute ₹1000 to build a safe home for a family in need. 5 homes delivered, the 6th under construction.',
+  image = '/images/hero-family.jpg',
+  canonicalPath = '/',
+} = Astro.props;
+
+const siteUrl = 'https://homefor1000.org';
+const canonical = `${siteUrl}${canonicalPath}`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  name: 'Home for ₹1000',
+  url: siteUrl,
+  description,
+  slogan: 'Small contributions. Real homes.',
+  areaServed: 'Kerala, India',
+  nonprofitStatus: 'Nonprofit',
+};
+---
+
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+    />
+    <meta name="theme-color" content="#1A3A2A" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Home for ₹1000" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${siteUrl}${image}`} />
+    <meta property="og:site_name" content="Home for ₹1000" />
+    <meta property="og:locale" content="en_IN" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${image}`} />
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground">
+      Skip to content
+    </a>
+    <main id="main-content" class="mx-auto min-h-screen max-w-[1500px] overflow-hidden bg-background">
+      <slot />
+    </main>
+  </body>
+</html>

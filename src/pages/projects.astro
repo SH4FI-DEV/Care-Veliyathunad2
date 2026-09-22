@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import MobileMenu from '../components/MobileMenu.tsx';
+import DonateDialog from '../components/DonateDialog.tsx';
+
+const projects = [
+  { number: '01', family: 'Amminikkutty Family', status: 'Delivered', members: 3, location: 'Veliyathunad, Kerala', description: 'A safe home for an elderly woman and her family.', image: '/images/home-hero-OMYXYKhC.jpg' },
+  { number: '02', family: 'Rafeeq & Sulfath', status: 'Delivered', members: 4, location: 'Veliyathunad, Kerala', description: 'A family of four now has a permanent roof over their heads.', image: '/images/home-handover-pJAxTwgq.jpg' },
+  { number: '03', family: 'Fathima Kunju', status: 'Delivered', members: 2, location: 'Veliyathunad, Kerala', description: 'An elderly widow received a dignified home.', image: '/images/home-inside-FFuOsBA9.jpg' },
+  { number: '04', family: 'Gopalan Nair', status: 'Delivered', members: 3, location: 'Veliyathunad, Kerala', description: 'A family of three moved into a solid, safe home.', image: '/images/home-construction-B_u4OeLH.jpg' },
+  { number: '05', family: 'Nazeer & Ayisha', status: 'In Progress', members: 5, location: 'Veliyathunad, Kerala', description: 'Currently under construction — walls are up and the roof is next.', image: '/images/home-construction-B_u4OeLH.jpg', raised: '₹1,88,000', goal: '₹4,50,000', progress: 42 },
+];
+---
+
+<Layout title="Projects — Home for ₹1000" description="See the homes built by the Home for ₹1000 community in Kerala. 5 families delivered safe homes, the 6th is under construction." canonicalPath="/projects">
+  <section class="relative m-3 min-h-[400px] overflow-hidden rounded-md sm:m-5 lg:min-h-[500px]">
+    <img src="/images/home-construction-B_u4OeLH.jpg" alt="Home under construction" class="absolute inset-0 size-full object-cover" />
+    <div class="absolute inset-0 bg-foreground/40"></div>
+    <Navbar />
+    <div class="absolute bottom-8 left-5 z-10 max-w-xl sm:bottom-12 sm:left-10">
+      <h1 class="text-4xl font-semibold text-background leading-[0.98] sm:text-6xl">Our Projects</h1>
+      <p class="mt-4 max-w-md text-sm text-background/80 sm:text-base">5 homes delivered. The 6th under construction.</p>
+    </div>
+  </section>
+
+  <section class="px-6 py-20 sm:px-12 lg:px-20 lg:py-28">
+    <div class="mb-12">
+      <SectionLabel text="All projects" />
+      <h2 class="mt-3 text-4xl font-medium leading-none sm:text-5xl">Homes We've Built.</h2>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {projects.map((project) => (
+        <article class="group overflow-hidden rounded-md border border-border bg-card card-hover">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src={project.image} alt={project.family} loading="lazy" class="size-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div class="absolute top-3 left-3 flex gap-2">
+              <span class="inline-flex items-center rounded-md bg-foreground/80 px-2 py-1 text-xs font-medium text-background">Home #{project.number}</span>
+              <span class:list={['inline-flex items-center rounded-md px-2 py-1 text-xs font-semibold', project.status === 'Delivered' ? 'bg-primary text-primary-foreground' : 'bg-foreground text-background']}>{project.status}</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-semibold">{project.family}</h3>
+            <p class="mt-1 text-xs text-muted-foreground">{project.location} · {project.members} members</p>
+            <p class="mt-3 text-sm text-muted-foreground">{project.description}</p>
+            {project.progress !== undefined && (
+              <div class="mt-4">
+                <div class="flex justify-between text-xs mb-1"><span class="text-primary font-semibold">{project.raised}</span><span class="text-muted-foreground">{project.goal}</span></div>
+                <div class="h-2 overflow-hidden rounded-full bg-border"><div class="h-full bg-primary rounded-full progress-fill" style={`width: ${project.progress}%`}></div></div>
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-foreground px-6 py-16 text-center sm:px-12 lg:px-20">
+    <h2 class="text-3xl font-medium text-background sm:text-4xl">Help Us Build the Next Home</h2>
+    <p class="mt-4 max-w-md mx-auto text-background/70">The 6th home is under construction right now.</p>
+    <button data-donate-trigger class="mt-8 btn-primary text-sm px-6 py-2.5 cursor-pointer">Donate now</button>
+  </section>
+
+  <Footer />
+  <MobileMenu client:load />
+  <DonateDialog client:load />
+</Layout>

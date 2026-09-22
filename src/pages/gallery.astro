@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import MobileMenu from '../components/MobileMenu.tsx';
+import DonateDialog from '../components/DonateDialog.tsx';
+
+const images = [
+  { src: '/images/home-hero-OMYXYKhC.jpg', alt: 'A family standing in front of their new home', caption: 'Home #1 — Amminikkutty Family' },
+  { src: '/images/home-handover-pJAxTwgq.jpg', alt: 'Key handover ceremony', caption: 'Key handover ceremony' },
+  { src: '/images/home-construction-B_u4OeLH.jpg', alt: 'Home under construction', caption: 'Community build day' },
+  { src: '/images/home-inside-FFuOsBA9.jpg', alt: 'Children studying inside', caption: 'Inside a completed home' },
+  { src: '/images/home-construction-B_u4OeLH.jpg', alt: 'Building walls', caption: 'Walls going up for Home #5' },
+  { src: '/images/home-handover-pJAxTwgq.jpg', alt: 'Family celebration', caption: 'Celebrating a new beginning' },
+  { src: '/images/home-hero-OMYXYKhC.jpg', alt: 'Completed home', caption: 'A home built with love' },
+  { src: '/images/home-inside-FFuOsBA9.jpg', alt: 'Family in living room', caption: 'Making memories' },
+];
+---
+
+<Layout title="Gallery — Home for ₹1000" description="Photo gallery of the Home for ₹1000 journey — Kerala families receiving keys, volunteers building, and homes taking shape." canonicalPath="/gallery">
+  <section class="relative m-3 min-h-[400px] overflow-hidden rounded-md sm:m-5 lg:min-h-[500px]">
+    <img src="/images/home-handover-pJAxTwgq.jpg" alt="Gallery" class="absolute inset-0 size-full object-cover" />
+    <div class="absolute inset-0 bg-foreground/40"></div>
+    <Navbar />
+    <div class="absolute bottom-8 left-5 z-10 max-w-xl sm:bottom-12 sm:left-10">
+      <h1 class="text-4xl font-semibold text-background leading-[0.98] sm:text-6xl">Gallery</h1>
+      <p class="mt-4 max-w-md text-sm text-background/80 sm:text-base">Moments from our build journey.</p>
+    </div>
+  </section>
+
+  <section class="px-6 py-20 sm:px-12 lg:px-20 lg:py-28">
+    <div class="mb-12">
+      <SectionLabel text="Photo gallery" />
+      <h2 class="mt-3 text-4xl font-medium leading-none sm:text-5xl">Stories in Pictures.</h2>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {images.map((image, index) => (
+        <div class:list={['group relative overflow-hidden rounded-md cursor-pointer', index === 0 ? 'sm:col-span-2 sm:row-span-2' : '']}>
+          <img src={image.src} alt={image.alt} loading="lazy" class="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-foreground/0 transition-colors duration-300 group-hover:bg-foreground/30"></div>
+          <div class="absolute inset-x-0 bottom-0 p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <p class="text-sm font-semibold text-background">{image.caption}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="px-6 py-16 text-center sm:px-12 lg:px-20">
+    <h2 class="text-3xl font-medium sm:text-4xl">Want to Be Part of the Next Photo?</h2>
+    <p class="mt-4 max-w-md mx-auto text-muted-foreground">Contribute to the current build.</p>
+    <button data-donate-trigger class="mt-8 btn-primary text-sm px-6 py-2.5 cursor-pointer">Donate now</button>
+  </section>
+
+  <Footer />
+  <MobileMenu client:load />
+  <DonateDialog client:load />
+</Layout>

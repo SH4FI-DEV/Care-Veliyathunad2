@@ -1,0 +1,73 @@
+---
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About us', href: '/about' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<footer class="bg-foreground px-6 py-16 text-background sm:px-12 lg:px-20">
+  <div class="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr]">
+    <div>
+      <a href="/" class="flex items-center gap-2 text-lg font-semibold text-background">
+        Home for ₹1000
+      </a>
+      <p class="mt-5 max-w-sm text-sm text-background/65">
+        A community initiative building safe, simple homes for families in need — ₹1000 at a time.
+      </p>
+      <form class="mt-6 flex max-w-md" onsubmit="event.preventDefault()">
+        <input
+          aria-label="Email address"
+          type="email"
+          required
+          placeholder="Enter your email"
+          class="min-w-0 flex-1 rounded-l-md border border-background/20 bg-transparent px-4 text-sm outline-none placeholder:text-background/45"
+        />
+        <button
+          type="submit"
+          class="btn-primary h-9 px-5 text-sm rounded-l-none cursor-pointer"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+
+    <div>
+      <h3 class="text-sm font-semibold">Quick links</h3>
+      <div class="mt-4 grid gap-3 text-sm text-background/65">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'transition-colors hover:text-background',
+              currentPath === link.href ? 'text-primary font-medium' : '',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div>
+      <h3 class="text-sm font-semibold">Talk to the team</h3>
+      <div class="mt-4 grid gap-3 text-sm text-background/65">
+        <a href="https://wa.me/919000000000" target="_blank" rel="noreferrer" class="flex items-center gap-2 transition-colors hover:text-background">
+          WhatsApp
+        </a>
+        <a href="tel:+919000000000" class="flex items-center gap-2 transition-colors hover:text-background">
+          +91 90000 00000
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-16 flex flex-col justify-between gap-3 border-t border-background/15 pt-6 text-xs text-background/50 sm:flex-row">
+    <span>&copy; 2026 Home for ₹1000. All rights reserved.</span>
+    <span>Every brick counts. Every family matters.</span>
+  </div>
+</footer>
