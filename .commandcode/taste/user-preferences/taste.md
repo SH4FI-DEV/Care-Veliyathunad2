@@ -21,5 +21,6 @@
 - Expects sites to be SEO-ready out of the box: per-page titles and meta descriptions, canonical URLs, Open Graph/Twitter cards, JSON-LD structured data, robots.txt, and an XML sitemap. Confidence: 0.85
 - Expects all images to be optimized for fast load times (WebP/AVIF, responsive srcset, lazy loading below the fold). Page-load performance is a stated priority, not an afterthought. Confidence: 0.85
 - Prefers region-authentic imagery that matches the site's target audience (e.g., Kerala people and scenes) rather than generic stock photos. Confidence: 0.7
+- Wants successful design patterns (card layouts, hover effects, overlays) reused across different sections/pages of the site rather than reinvented. When they say "use X section's design for Y section," they mean carry over the proven pattern directly. Confidence: 0.85
 - Expects sites to be responsive across breakpoints (mobile/tablet/desktop) as a baseline requirement. Confidence: 0.8
 - When a task requires credentials or access to a tool or service, prefers the assistant to ask for them rather than guess or silently skip the step. Confidence: 0.8
